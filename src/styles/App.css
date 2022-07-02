@@ -1,0 +1,11 @@
+* {
+  font-family: 'Raleway', sans-serif;
+}
+a {
+  color: #8b42ff;
+  text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

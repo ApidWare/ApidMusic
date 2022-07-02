@@ -4,6 +4,7 @@ import home from "./home.png"
 import trending from "./trending.png"
 import top from "./top.png"
 import library from "./library.png"
+import '../styles/Sidebar.css'
 
 function Sidebar() {
   return (
@@ -14,7 +15,7 @@ function Sidebar() {
         </div>
         <hr/>
         <div id="navMenu">
-            <div className="navMenuItem">
+            <div id="active" className="navMenuItem">
                 <a href="/">
                     <img className="navMenuIcon" src={home} alt="Home icon"/>
                         <span className="navMenuText">

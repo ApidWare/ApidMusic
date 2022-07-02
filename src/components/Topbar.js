@@ -1,14 +1,15 @@
 import React from 'react'
+import '../styles/Topbar.css'
 
-function Topbar() {
+function Topbar(props) {
   return (
     <>
     <div id="topBar">
         <div id="searchBar">
-            <input placeholder="Search for a song, album or artist" id="searchBox" type="text"/>
-                <button id="searchButton">
-                    Search
-                </button>
+            <input onChange={props.handleSpace} placeholder="Search for a song, album or artist" id="searchBox" type="text"/>
+                    <button onClick={props.searchHandler} id="searchButton">
+                        Search
+                    </button>
         </div>
         <div id="userAccountPanel">
             <button id="loginButton">Login</button>

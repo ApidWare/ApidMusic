@@ -1,0 +1,77 @@
+nav {
+  margin-top: 2px;
+  width: 13vw;
+  height: 87vh;
+  padding: 10px;
+  padding-right: 20px;
+  border-right: 2px solid #c4c4c4;
+  border-top-right-radius: 30px;
+  /* border-bottom-right-radius: 30px; */
+  overflow: hidden;
+  z-index: 3;
+}
+#barTitle {
+  display: flex;
+  flex-wrap: nowrap;
+}
+#icon {
+  width: 40px;
+}
+#barTitleText {
+  font-size: 26px;
+  margin-left: 10px;
+  margin-top: 7px;
+  font-weight: bold;
+}
+.navMenuItem {
+  font-size: 20px;
+  margin-top: 10px;
+  padding: 10px;
+  transition: .1s;
+}
+.navMenuIcon {
+  width: 20px;
+}
+.navMenuItem:hover {
+  background: rgb(226, 226, 226);
+  cursor: pointer;
+  border-radius: 10px;
+}
+.navMenuItem > a {
+  text-decoration: none;
+  color: #000;
+  margin-left: 10px;
+}
+.navMenuText {
+  margin-left: 10px;
+}
+nav > hr {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+#playQueueTitle {
+  font-size: 17px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+#createQueueButton {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-left: 10px;
+  padding: 10px;
+  background: transparent;
+  border-style: solid;
+  border-radius: 10px;
+  transition: .2s;
+}
+#createQueueButton:hover {
+  cursor: pointer;
+  background: rgb(226, 226, 226);
+  transform: translateX(20px);
+}
+#active {
+    background: rgb(226, 226, 226);
+    cursor: pointer;
+    border-radius: 10px;
+    border-bottom: 2px solid #8b42ff;
+}
