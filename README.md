@@ -1,6 +1,7 @@
 # ApidMusic - Listen Freely.
 
-ApidMusic is an Open-Source web based music streaming application which lets you listen to music without any interruption while respecting your privacy.
+ApidMusic is an Open-Source web based music streaming application which lets you listen to music without any interruption while respecting your privacy. \
+[Click here](https://apidmusic.netlify.app) or go to [https://apidmusic.netlify.app](https://apidmusic.netlify.app) to visit the ApidMusic website.
 
 ## Q - How to start development server?
 
