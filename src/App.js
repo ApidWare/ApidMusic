@@ -18,8 +18,41 @@ export default function App() {
     musicLink: '',
     songTitle: '',
     songArtist: '',
-    playerLoading: false
+    playerLoading: false,
+    seekBar: false
   });
+  const [seekLength, setSeekLength] = useState(0);
+  const [currentDuration, setCurrentDuration] = useState("00:00");
+  const [totalDuration, setTotalDuration] = useState("00:00");
+
+  function coverter (value) {
+    let val = Math.round(value);
+    const h = Math.floor(val / 3600);
+    const m = Math.floor(val % 3600 / 60);
+    const s = Math.floor(val % 3600 % 60);
+    const hours = h > 0 ? h + ':' : "";
+    const minutes = m > 0 ? (m<10 ? '0'+m : m) + ':' : "00:";
+    const seconds = s > 0 ? (s<10 ? '0'+s : s) : "00";
+    let duration = hours + minutes + seconds
+    return duration;
+  }
+
+  function musicDuration () {
+      let totalDuration = document.getElementById("music").duration;
+      setTotalDuration(coverter(totalDuration)); 
+  }
+
+  function currentMusicDuration () {
+    let duration = 0;
+    let totalMusicDuration = Math.round(document.getElementById("music").duration);
+    while (duration < totalMusicDuration) {
+      // eslint-disable-next-line no-loop-func
+      setTimeout(() => {
+        setCurrentDuration(coverter(duration));
+        duration ++;
+      }, 1000);
+    }
+  }
 
 
   const fetchSong = async (searchQuery) => {
@@ -30,14 +63,38 @@ export default function App() {
     });
     let data = await fetch(url);
     let parsedData = await data.json();
-    console.log(parsedData);
     setMusicState({
       musicArt: parsedData.results[0].image[1].link,
       musicLink: parsedData.results[0].downloadUrl[2].link,
       songTitle: parsedData.results[0].name,
       songArtist: parsedData.results[0].artist,
-      playerLoading: false
+      playerLoading: false,
+      seekBar: true
     });
+    setTimeout(() => {
+      musicDuration();
+    }, 2000);
+  }
+
+
+  
+  function seekBar() {
+    let totalDuration = document.getElementById("music").duration;
+    let currentDuration = totalDuration/100;
+    let finalDuration = 0;
+    let z = parseFloat(currentDuration.toFixed(3))*1000;
+      if (playState === play) {
+        const intervalID = setInterval(() => {
+        setSeekLength(finalDuration);
+        finalDuration += 1;
+        if (finalDuration > 99) {
+          clearInterval(intervalID);
+          setSeekLength(0);
+        }
+        console.log(finalDuration);
+      },z);
+    }
+
   }
 
   function searchHandler() {
@@ -58,12 +115,17 @@ export default function App() {
     if (x % 2 === 0) {
       music.play();
       setPlayState(pause);
+      // seekBar();
+      // musicDuration();
+      // currentMusicDuration();
       prevButton.style.marginRight = "10px"
       nextButton.style.marginLeft = "10px"
     }
     else {
       music.pause();
       setPlayState(play);
+      setSeekLength(0);
+      // setCurrentDuration("00:00");
       prevButton.style.marginRight = "20px"
       nextButton.style.marginLeft = "20px"
     }
@@ -98,6 +160,10 @@ export default function App() {
           songTitle={musicState.songTitle}
           songArtist={musicState.songArtist}
           playerLoading={musicState.playerLoading}
+          // seekBar={musicState.seekBar}
+          // seekLength={seekLength}
+          // currentDuration={currentDuration}
+          // totalDuration={totalDuration}
         />
       </div>
     </>
