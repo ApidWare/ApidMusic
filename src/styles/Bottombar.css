@@ -8,6 +8,7 @@
   align-items: center;
   flex-direction: column;
   z-index: 3;
+  box-shadow: 0 0 15px #999;
 }
 #nextButton, #prevButton {
     transition: .4s;
@@ -34,6 +35,8 @@
     flex-direction: row;
 }
 #musicArt {
+    height: 150px;
+    width: 150px;
     margin-left: 5px;
     border-radius: 100px;
     z-index: 3;
@@ -49,9 +52,13 @@
     left: 1.5vh;
     width: 100%;
 }
+#songTitle {
+    text-shadow: 0 0 10px #777;
+}
 #songArtist {
     font-size: 17px;
     color: #8b42ff;
+    text-shadow: 0 0 7px #aa76ff;
 }
 #playerLoading {
     margin-top: 20px;
@@ -60,7 +67,6 @@
 #totalSeek {
     width: 95.8%;
     height: 5px;
-    background-color: #aaa;
     position: fixed;
     bottom: 0px;
     left: 4.2%;
@@ -68,12 +74,27 @@
     transition: .2s;
 }
 #seekBar {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    bottom: 10px;
+    width: 100%;
     height: 100%;
-    background: #8b42ff;
+    background: #aaa;
     transition: .4s;
     border-radius: 1px;
+    overflow: hidden;
 }
-#totalSeek:hover {
+#seekBar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 20px;
+    width: 0px;
+    border-radius: 20px;
+    background: #000;
+    box-shadow: -100vw 0 0 100vw #8b42ff;
+}
+#seekBar:hover {
     cursor: pointer;
     height: 8px;
 }
@@ -85,10 +106,14 @@
     right: 2%;
     bottom: 4%;
 }
+#duration > span {
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 0 0 10px #777;
+}
 #bottomIcons {
     position: fixed;
     bottom: 3%;
-    right: 7%;
+    right: 7.7%;
 }
 #volumeSlider {
     -webkit-appearance: none;
@@ -96,15 +121,23 @@
     border-radius: 20px;
     position: fixed;
     bottom: 16.5%;
-    right: 5.25%;
+    right: 6%;
     transform: rotate(-90deg);
+    overflow: hidden;
+    transition: .4s;
+    box-shadow: 0 0 10px #8b42ff;
 }
 #volumeSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     background-color: #8b42ff;
+    box-shadow: -100vw 0 0 100vw #8b42ff;
     height: 20px;
     width: 20px;
     border-radius: 20px;
+}
+#volumeSlider:hover {
+    transform: rotate(-90deg) scale(1.1);
+    cursor: pointer;
 }
 #volumeButton {
     transition: .3s;
@@ -123,4 +156,58 @@
 #bottomMenu:hover {
     cursor: pointer;
     transform: scale(1.1);
+}
+#favButton {
+    transition: .3s;
+    transform: scale(0.95);
+    position: relative;
+    right: 28%;
+}
+#favButton:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+#bottomMenuBox {
+    position: absolute;
+    top: -180%;
+    right: 8%;
+    border-radius: 15px;
+    background: #eee;
+    box-shadow: 0 0 10px #777;
+}
+.bottomMenuItem, .qualityMenuItem {
+    padding: 15px 20px;
+    overflow: hidden;
+}
+.bottomMenuItem:hover, .qualityMenuItem:hover {
+    background: #cfcfcf !important;
+    cursor: pointer;
+}
+div > #qualityText{
+    position: absolute;
+    top: 17px;
+    left: 50px;
+}
+#qualityMenu {
+    position: absolute;
+    left: -210px;
+    top: -50px;
+    border-radius: 15px;
+    background: #eee;
+    box-shadow: 0 0 10px #777;
+    overflow: hidden;
+}
+#qualityOption {
+    font-family: 'Montserrat', sans-serif;
+}
+#selectedQuality {
+    background: #ddd;
+}
+.qualityMenuItem {
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+}
+#qualitySetting {
+    margin-top: 3px;
+    margin-left: 2px;
 }

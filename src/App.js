@@ -3,16 +3,17 @@ import './styles/App.css';
 import Bottombar from './components/Bottombar';
 import Sidebar from './components/Sidebar';
 import Topbar from './components/Topbar';
-import play from './components/play.png';
-import pause from './components/pause.png';
-import defaultImg from './components/default.png';
+import play from './resources/play.png';
+import pause from './resources/pause.png';
+import defaultImg from './resources/default.png';
 
 let x = 0
-
+let interval;
 
 export default function App() {
   
   const [playState, setPlayState] = useState(play);
+  const [seekValue, setSeekValue] = useState("0");
   const [musicState, setMusicState] = useState({
     musicArt: defaultImg,
     musicLink: '',
@@ -21,11 +22,10 @@ export default function App() {
     playerLoading: false,
     seekBar: false
   });
-  const [seekLength, setSeekLength] = useState(0);
   const [currentDuration, setCurrentDuration] = useState("00:00");
   const [totalDuration, setTotalDuration] = useState("00:00");
 
-  function coverter (value) {
+  function converter (value) {
     let val = Math.round(value);
     const h = Math.floor(val / 3600);
     const m = Math.floor(val % 3600 / 60);
@@ -36,25 +36,21 @@ export default function App() {
     let duration = hours + minutes + seconds
     return duration;
   }
-
-  function musicDuration () {
-      let totalDuration = document.getElementById("music").duration;
-      setTotalDuration(coverter(totalDuration)); 
+  function musicDuration() {
+    let totalMusicDuration = document.getElementById("music").duration;
+    setTotalDuration(converter(totalMusicDuration));
   }
-
   function currentMusicDuration () {
-    let duration = 0;
-    let totalMusicDuration = Math.round(document.getElementById("music").duration);
-    while (duration < totalMusicDuration) {
-      // eslint-disable-next-line no-loop-func
-      setTimeout(() => {
-        setCurrentDuration(coverter(duration));
-        duration ++;
-      }, 1000);
-    }
+    let seekBar = document.getElementById("seekBar");
+    let totalMusicDuration = document.getElementById("music").duration;
+    seekBar.max = totalMusicDuration;
+    interval = setInterval(() => {
+      let currentDuration = document.getElementById("music").currentTime;
+      setCurrentDuration(converter(currentDuration));
+      setSeekValue(currentDuration);
+      musicDuration();
+    }, 500);
   }
-
-
   const fetchSong = async (searchQuery) => {
     let url = `https://saavn.me/search/songs?query=${searchQuery}&page=1&limit=1`;
     setMusicState({
@@ -71,30 +67,12 @@ export default function App() {
       playerLoading: false,
       seekBar: true
     });
-    setTimeout(() => {
-      musicDuration();
-    }, 2000);
   }
 
-
-  
-  function seekBar() {
-    let totalDuration = document.getElementById("music").duration;
-    let currentDuration = totalDuration/100;
-    let finalDuration = 0;
-    let z = parseFloat(currentDuration.toFixed(3))*1000;
-      if (playState === play) {
-        const intervalID = setInterval(() => {
-        setSeekLength(finalDuration);
-        finalDuration += 1;
-        if (finalDuration > 99) {
-          clearInterval(intervalID);
-          setSeekLength(0);
-        }
-        console.log(finalDuration);
-      },z);
-    }
-
+  function updateSeek() {
+    let music = document.getElementById("music");
+    let seekBar = document.getElementById("seekBar");
+    music.currentTime = seekBar.value;
   }
 
   function searchHandler() {
@@ -106,6 +84,10 @@ export default function App() {
     }
     setPlayState(play);
     fetchSong(search);
+      setTimeout(() => {
+        music();
+        x++;
+      }, 3000);
   }
 
   function music() {
@@ -115,17 +97,14 @@ export default function App() {
     if (x % 2 === 0) {
       music.play();
       setPlayState(pause);
-      // seekBar();
-      // musicDuration();
-      // currentMusicDuration();
+      currentMusicDuration();
       prevButton.style.marginRight = "10px"
       nextButton.style.marginLeft = "10px"
     }
     else {
       music.pause();
       setPlayState(play);
-      setSeekLength(0);
-      // setCurrentDuration("00:00");
+      clearInterval(interval);
       prevButton.style.marginRight = "20px"
       nextButton.style.marginLeft = "20px"
     }
@@ -160,10 +139,11 @@ export default function App() {
           songTitle={musicState.songTitle}
           songArtist={musicState.songArtist}
           playerLoading={musicState.playerLoading}
-          // seekBar={musicState.seekBar}
-          // seekLength={seekLength}
-          // currentDuration={currentDuration}
-          // totalDuration={totalDuration}
+          seekBar={musicState.seekBar}
+          currentDuration={currentDuration}
+          totalDuration={totalDuration}
+          updateSeek={updateSeek}
+          seekValue={seekValue}
         />
       </div>
     </>

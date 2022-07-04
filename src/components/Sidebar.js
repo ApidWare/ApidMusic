@@ -1,10 +1,10 @@
 import React from 'react'
-import icon from "./icon.png"
-import home from "./home.png"
-import trending from "./trending.png"
-import top from "./top.png"
-import library from "./library.png"
 import '../styles/Sidebar.css'
+import icon from "../resources/icon.png"
+import home from "../resources/home.png"
+import trending from "../resources/trending.png"
+import top from "../resources/top.png"
+import library from "../resources/library.png"
 
 function Sidebar() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
-import loading from "./player-loading.gif";
 import '../styles/Bottombar.css';
+import loading from "../resources/player-loading.gif";
 
 function Playerloading() {
   return (
