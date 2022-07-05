@@ -6,16 +6,19 @@ import Topbar from './components/Topbar';
 import play from './resources/play.png';
 import pause from './resources/pause.png';
 import defaultImg from './resources/default.png';
+import HomePage from './components/HomePage';
+import hello from './resources/hello.png';
 
 let x = 0
 let interval;
-
 export default function App() {
   
   const [playState, setPlayState] = useState(play);
   const [seekValue, setSeekValue] = useState("0");
+  const [musicQuality, setMusicQuality] = useState(3);
+  const [qualityState, setQualityState] = useState("Quality - MD");
   const [musicState, setMusicState] = useState({
-    musicArt: defaultImg,
+    musicArt: hello,
     musicLink: '',
     songTitle: '',
     songArtist: '',
@@ -24,6 +27,16 @@ export default function App() {
   });
   const [currentDuration, setCurrentDuration] = useState("00:00");
   const [totalDuration, setTotalDuration] = useState("00:00");
+
+  function dialogBox (message) {
+    const dialog = document.getElementById("dialogBox");
+    const dialogText = document.getElementById("dialogText");
+    dialog.style.display = "block";
+    dialogText.innerHTML = message;
+    setTimeout(() => {
+      dialog.style.display = "none";
+    }, 3000);
+  }
 
   function converter (value) {
     let val = Math.round(value);
@@ -61,7 +74,7 @@ export default function App() {
     let parsedData = await data.json();
     setMusicState({
       musicArt: parsedData.results[0].image[1].link,
-      musicLink: parsedData.results[0].downloadUrl[2].link,
+      musicLink: parsedData.results[0].downloadUrl[musicQuality].link,
       songTitle: parsedData.results[0].name,
       songArtist: parsedData.results[0].artist,
       playerLoading: false,
@@ -83,11 +96,11 @@ export default function App() {
       search += searchQuery[i] + '+'
     }
     setPlayState(play);
-    fetchSong(search);
-      setTimeout(() => {
+    setTimeout(() => {
         music();
         x++;
       }, 3000);
+      fetchSong(search);
   }
 
   function music() {
@@ -110,9 +123,16 @@ export default function App() {
     }
   }
   function handleSpace () {
+    const searchBox = document.getElementById("searchBox");
+    if (searchBox.value.length !== 0) {
+      document.getElementById("clearBox").style.visibility = "visible";
+    }
+    else {
+      document.getElementById("clearBox").style.visibility = "hidden";
+    }
     window.onkeydown = function (code) {
     if (code.keyCode === 32) {
-    }
+      }
     }
   }
   window.onkeydown = function (code) {
@@ -126,11 +146,42 @@ export default function App() {
     music();
     x++;
   }
+  function setQualityDataSaving () {
+    setMusicQuality(1);
+    setQualityState("Quality - Ds");
+    dialogBox("The quality will be applied from the next song.")
+  }
+  function setQualityLow () {
+    setMusicQuality(2);
+    setQualityState("Quality - Lo");
+    dialogBox("The quality will be applied from the next song.");
+  }
+  function setQualityMedium () {
+    setMusicQuality(3);
+    setQualityState("Quality - Md");
+    dialogBox("The quality will be applied from the next song.");
+  }
+  function setQualityHigh () {
+    setMusicQuality(4);
+    setQualityState("Quality - Hi");
+    dialogBox("The quality will be applied from the next song.");
+  }
+  
+  function buttonHandler () {
+    dialogBox("Still in development!");
+  }
+
   return (
     <>
       <div id="body">
-        <Topbar handleSpace={handleSpace} searchHandler={searchHandler} />
-        <Sidebar />
+        <Topbar
+          handleSpace={handleSpace}
+          searchHandler={searchHandler}
+          accountButtonHandler={buttonHandler}
+        />
+        <Sidebar
+          tabsHandler={buttonHandler}
+        />
         <Bottombar
           playPause={playPause}
           playState={playState}
@@ -144,7 +195,14 @@ export default function App() {
           totalDuration={totalDuration}
           updateSeek={updateSeek}
           seekValue={seekValue}
+          setQualityDataSaving={setQualityDataSaving}
+          setQualityLow={setQualityLow}
+          setQualityMedium={setQualityMedium}
+          setQualityHigh={setQualityHigh}
+          qualityState={qualityState}
         />
+
+        <HomePage />
       </div>
     </>
   )

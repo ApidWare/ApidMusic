@@ -1,16 +1,52 @@
+#dialogBox {
+  font-size: 22px;
+  position: fixed;
+  right: 30px;
+  top: 100px;
+  background: #d6bcff;
+  color: #000;
+  border-radius: 10px;
+  padding: 10px 20px;
+  overflow: hidden;
+  box-shadow: 0 0 7px #777;
+  display: none;
+}
+#dialogText, #infoLogo {
+  display: inline;
+}
+#dialogText {
+  margin-left: 10px;
+}
+#infoLogo {
+  position: relative;
+  top: 3px;
+  left: -6px;
+  font-size: 22px;
+  background: #f7f5f5;
+  padding: 10px;
+  font-weight: 400;
+}
+
 #topBar {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 3;
   position: fixed;
   top: 3px;
   right: 0;
-  width: 84.5vw;
+  width: 100vw;
   height: 7vh;
   border-bottom: 2px solid #c4c4c4;
   z-index: 2;
   text-align: center;
+  background-color: #fff;
+  border-top-left-radius: 30px;
+  box-shadow: 0 0 5px #777;
 }
 #searchBar {
   margin: 12px;
-  margin-right: 12vw;
+  margin-left: 10vw;
 }
 #searchBox {
   padding: 7px;
@@ -20,10 +56,12 @@
   outline: none;
   border-radius: 20px;
   border-style: solid;
-  /* outline: solid #6a0eff 2px; */
+}
+#searchBox:focus {
+  box-shadow: 0 0 10px #8b42ff;
 }
 #searchButton {
-  margin-left: 10px;
+  margin-left: -10px;
   padding: 9px;
   font-size: 15px;
   font-weight: 600;
@@ -63,4 +101,14 @@
 #signupButton {
   background: #8b42ff;
   color: #fff;
+}
+#clearBox {
+  position: relative;
+  top: 5px;
+  right: 30px;
+  font-size: 22px;
+  visibility: hidden;
+}
+#clearBox:hover{
+  cursor: pointer;
 }

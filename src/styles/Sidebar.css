@@ -1,4 +1,8 @@
 nav {
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  z-index: 3;
   margin-top: 2px;
   width: 13vw;
   height: 87vh;
@@ -8,11 +12,15 @@ nav {
   border-top-right-radius: 30px;
   /* border-bottom-right-radius: 30px; */
   overflow: hidden;
-  z-index: 3;
+  position: fixed;
+  background: #fff;
 }
 #barTitle {
   display: flex;
   flex-wrap: nowrap;
+  padding-bottom: 10px;
+  border-bottom: 1px solid;
+  margin-bottom: -20px;
 }
 #icon {
   width: 40px;
@@ -28,9 +36,11 @@ nav {
   margin-top: 10px;
   padding: 10px;
   transition: .1s;
+  display: flex;
+  flex-direction: column;
 }
-.navMenuIcon {
-  width: 20px;
+#navMenuIcon {
+  font-size: 30px;
 }
 .navMenuItem:hover {
   background: rgb(226, 226, 226);
@@ -44,6 +54,8 @@ nav {
 }
 .navMenuText {
   margin-left: 10px;
+  position: relative;
+  top: -6px;
 }
 nav > hr {
   margin-top: 20px;

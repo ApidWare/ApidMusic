@@ -121,7 +121,7 @@
     border-radius: 20px;
     position: fixed;
     bottom: 16.5%;
-    right: 6%;
+    right: 6.3%;
     transform: rotate(-90deg);
     overflow: hidden;
     transition: .4s;
@@ -177,25 +177,29 @@
 }
 .bottomMenuItem, .qualityMenuItem {
     padding: 15px 20px;
-    overflow: hidden;
 }
 .bottomMenuItem:hover, .qualityMenuItem:hover {
     background: #cfcfcf !important;
     cursor: pointer;
+    border-radius: 7px;
 }
-div > #qualityText{
+div > #qualityText {
     position: absolute;
     top: 17px;
-    left: 50px;
+    left: 35px;
+}
+#chevronLeft {
+    position: relative;
+    top: 0px;
+    right: 8px;
 }
 #qualityMenu {
     position: absolute;
-    left: -210px;
+    left: -205px;
     top: -50px;
     border-radius: 15px;
     background: #eee;
     box-shadow: 0 0 10px #777;
-    overflow: hidden;
 }
 #qualityOption {
     font-family: 'Montserrat', sans-serif;
