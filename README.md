@@ -1,6 +1,7 @@
 # ApidMusic - Listen Freely.
 
 [![GitHub package.json version](https://img.shields.io/github/package-json/v/apidware/apidmusic?style=plastic)](https://github.com/ApidWare/ApidMusic)
+[![GitHub license](https://img.shields.io/github/license/ApidWare/ApidMusic?style=plastic)](https://github.com/ApidWare/ApidMusic/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/apidware/apidmusic?style=plastic)](https://github.com/ApidWare/ApidMusic/issues)
 [![Website](https://img.shields.io/website?down_color=red&down_message=down&style=plastic&up_color=green&up_message=up&url=https%3A%2F%2Fapidmusic.netlify.app)](https://apidmusic.netlify.app)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/w/apidware/apidmusic?style=plastic)](https://github.com/ApidWare/ApidMusic)
