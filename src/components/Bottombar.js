@@ -60,11 +60,7 @@ function Bottombar(props) {
 
   return (
     <>
-<<<<<<< HEAD
     <div style={{background: `${props.bottomBarTheme}`, color: `${props.textColor}`, boxShadow: `${props.bottomBarShadow}`}} id="bottomBar">
-=======
-    <div id="bottomBar">
->>>>>>> b91038813f1398ca33bcdd09a545c549f011dc47
         {(!props.playerLoading) &&
         <div id="musicControls">
             <audio id="music" src={props.musicLink} />
@@ -79,15 +75,9 @@ function Bottombar(props) {
             <Playerloading />
         }
         <div id="musicInfo">
-<<<<<<< HEAD
             <img style={{boxShadow: `${props.musicArtTheme}`}} draggable={false} id="musicArt" src={props.musicArt} alt="Music art" />
             <div id="songInfo">
                 <div id="songTitle">{props.songTitle && props.songTitle.replace('&#39;',"'")}</div>
-=======
-            <img draggable={false} id="musicArt" src={props.musicArt} alt="Music art" />
-            <div id="songInfo">
-                <div id="songTitle">{props.songTitle}</div>
->>>>>>> b91038813f1398ca33bcdd09a545c549f011dc47
                 <div id="songArtist"><a href="/">{props.songArtist}</a></div>
             </div>
         </div>
@@ -95,10 +85,7 @@ function Bottombar(props) {
         <>
             <div id="totalSeek">
                 <input
-<<<<<<< HEAD
                 style={{background: `${props.seekBarTheme}`}}
-=======
->>>>>>> b91038813f1398ca33bcdd09a545c549f011dc47
                 id="seekBar"
                 value={props.seekValue}
                 type="range"
@@ -110,19 +97,11 @@ function Bottombar(props) {
             </div>
             <div id="musicDuration">
                 <div id="duration"><span id="currentDuration">{props.currentDuration}</span>/<span id="totalDuration">{props.totalDuration}</span></div>
-<<<<<<< HEAD
                 <div style={{background: `${props.bottomBarTheme}`, color: `${props.textColor}`, boxShadow: `${props.bottomBarShadow}`, display: "none"}} id="bottomMenuBox">
                     <div id="qualityButton" className="bottomMenuItem" onMouseOut={qualityButtonOutHandler} onMouseOver={qualityButtonHandler}>
                         <span id="chevronLeft" className="material-symbols-outlined">chevron_left</span>
                         <span id="qualityText">{props.qualityState}</span>
                         <div  style={{background: `${props.bottomBarTheme}`, color: `${props.textColor}`, boxShadow: `${props.bottomBarShadow}`, display: "none"}} id="qualityMenu">
-=======
-                <div style={{display: "none"}} id="bottomMenuBox">
-                    <div id="qualityButton" className="bottomMenuItem" onMouseOut={qualityButtonOutHandler} onMouseOver={qualityButtonHandler}>
-                        <span id="chevronLeft" className="material-symbols-outlined">chevron_left</span>
-                        <span id="qualityText">{props.qualityState}</span>
-                        <div style={{display: "none"}} id="qualityMenu">
->>>>>>> b91038813f1398ca33bcdd09a545c549f011dc47
                             <div onClick={props.setQualityDataSaving} className="qualityMenuItem">
                             <span style={{display: "none"}} id="qualitySetDS" class="material-symbols-outlined">done</span>
                                 <span id="qualitySetting">Data Saving <span id="qualityOption">{` (48kbps)`}</span> </span>

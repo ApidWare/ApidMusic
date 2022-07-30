@@ -1,9 +1,6 @@
 * {
   font-family: 'Raleway', sans-serif;
-<<<<<<< HEAD
   transition: .2s;
-=======
->>>>>>> b91038813f1398ca33bcdd09a545c549f011dc47
 }
 a {
   color: #8b42ff;
@@ -12,7 +9,6 @@ a {
 a:hover {
     text-decoration: underline;
     cursor: pointer;
-<<<<<<< HEAD
 }
 img {
   -webkit-touch-callout: none;
@@ -21,6 +17,4 @@ img {
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
-=======
->>>>>>> b91038813f1398ca33bcdd09a545c549f011dc47
 }
