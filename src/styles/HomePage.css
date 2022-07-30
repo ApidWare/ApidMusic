@@ -38,6 +38,10 @@
     height: 200px;
     width: 200px;
     text-align: center;
+<<<<<<< HEAD
+=======
+    transition: .4s;
+>>>>>>> b91038813f1398ca33bcdd09a545c549f011dc47
 }
 .homeCard:hover {
     cursor: pointer;

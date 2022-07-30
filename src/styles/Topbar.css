@@ -33,10 +33,18 @@
   flex-direction: column;
   z-index: 3;
   position: fixed;
+<<<<<<< HEAD
   top: 0px;
   right: 0;
   width: 100vw;
   height: 7vh;
+=======
+  top: 3px;
+  right: 0;
+  width: 100vw;
+  height: 7vh;
+  border-bottom: 2px solid #c4c4c4;
+>>>>>>> b91038813f1398ca33bcdd09a545c549f011dc47
   z-index: 2;
   text-align: center;
   background-color: #fff;
@@ -70,12 +78,15 @@
   background: #8b42ff;
   color: #fff;
   transition: .2s;
+<<<<<<< HEAD
   -webkit-touch-callout: none;
     -webkit-user-select: none;
      -khtml-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
+=======
+>>>>>>> b91038813f1398ca33bcdd09a545c549f011dc47
 }
 #searchButton:hover {
   cursor: pointer;
@@ -102,6 +113,7 @@
 }
 #loginButton {
   background: transparent;
+<<<<<<< HEAD
   -webkit-touch-callout: none;
     -webkit-user-select: none;
      -khtml-user-select: none;
@@ -111,16 +123,21 @@
 }
 #loginButton:hover {
   color: #fff;
+=======
+>>>>>>> b91038813f1398ca33bcdd09a545c549f011dc47
 }
 #signupButton {
   background: #8b42ff;
   color: #fff;
+<<<<<<< HEAD
   -webkit-touch-callout: none;
     -webkit-user-select: none;
      -khtml-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
+=======
+>>>>>>> b91038813f1398ca33bcdd09a545c549f011dc47
 }
 #clearBox {
   position: relative;
@@ -129,6 +146,7 @@
   font-size: 22px;
   visibility: hidden;
 }
+<<<<<<< HEAD
 #clearBox:hover {
   cursor: pointer;
 }
@@ -143,5 +161,8 @@
 }
 #themeButton:hover {
   transform: scale(1.1);
+=======
+#clearBox:hover{
+>>>>>>> b91038813f1398ca33bcdd09a545c549f011dc47
   cursor: pointer;
 }

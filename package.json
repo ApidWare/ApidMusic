@@ -1,6 +1,10 @@
 {
   "name": "apidmusic",
+<<<<<<< HEAD
   "version": "0.8.0",
+=======
+  "version": "0.7.0",
+>>>>>>> b91038813f1398ca33bcdd09a545c549f011dc47
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
@@ -8,7 +12,10 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+<<<<<<< HEAD
     "react-router-dom": "^6.3.0",
+=======
+>>>>>>> b91038813f1398ca33bcdd09a545c549f011dc47
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
