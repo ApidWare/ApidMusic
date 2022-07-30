@@ -1,0 +1,214 @@
+#explorePage {
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 90vh;
+    width: 85vw;
+    margin-left: 15vw;
+    z-index: 0;
+}
+#explorePageContents {
+    height: 100%;
+    width: 100%;
+    margin-top: 8vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.searchResults{
+    height: 50px;
+    width: 100%;
+    margin: 20px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    transition: .4s;
+}
+.topSearchResults {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.searchResults:hover {
+    transform: scale(1.05);
+}
+#searchedMusicArt {
+    height: 50px;
+    width: 50px;
+    border-radius: 100px;
+    box-shadow: 0 0 5px #777;
+}
+
+
+/* 
+.topSearchResult{
+    height: 100px;
+    width: 40%;
+    margin: 20px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    transition: .4s;
+}
+.topSearchResult:hover {
+    transform: scale(1.05);
+}
+#topIcons {
+    display: flex;
+    align-items: center;
+    position: relative;
+    right: 158%;
+    width: 0vw;
+}
+#topMusicArt {
+    height: 80px;
+    width: 80px;
+    border-radius: 100px;
+    box-shadow: 0 0 5px #777;
+}
+#topSongInfo {
+    margin-left: 15px;
+    font-size: 20px;
+}
+#topSongTitle {
+    font-size: 25px;
+    width: 100vw;
+    
+}
+#topSongArtist {
+    margin-top: 2px;
+    color: #8b42ff;   
+} */
+
+
+#searchedSongInfo {
+    margin-left: 15px;
+    font-size: 17px;
+    display: flex;
+    flex-direction: row;
+}
+#searchedSongTitle {
+    font-size: 20px;
+    width: 400px;
+}
+#searchedSongArtist {
+    margin-top: 2px;
+    color: #8b42ff;   
+}
+#actualInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#searchedIcons {
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 10%;
+    height: 100px;
+    width: 100px;
+}
+.searchedIcons {
+    margin-left: 10px;
+    width: 24px;
+}
+.searchedIcons:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+#totalMusicDuration {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    margin-right: 15px;
+}
+#searchedPlayButton {
+    margin-right: 5px;
+}
+#seeMore {
+    font-size: 20px;
+    padding: 10px 0;
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+}
+#seeMore:hover {
+    color: #8b42ff;
+    cursor: pointer;
+}
+#searchLoading {
+    height: 100px;
+    width: 100px;
+    background: #8b42ff;
+    opacity: .2;
+    animation-name: searchLoading;
+    animation-duration: .7s;
+    animation-iteration-count: infinite;
+        transform: scale(.2);
+}
+@keyframes searchLoading {
+    50% {
+        opacity: .7;
+        transform: scale(1);
+        border-radius: 55px;
+    }
+}
+#searchLoadingContainer {
+    display: flex;
+    margin-top: 40vh;
+    justify-content: center;
+}
+::-webkit-scrollbar {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #8b42ff;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #8b42ff;
+}
+#searchedTitle {
+    font-size: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.searchedMusicTitle {
+    margin: 30px;
+    opacity: .5;
+    padding-bottom: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+}
+#activeMusicTitle {
+    border-bottom: 3px solid;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    opacity: 1;
+    cursor: pointer;
+}
+#activeMusicTitle:hover {
+    cursor: default;
+}
+.searchedMusicTitle:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+.topSearchTitle {
+    font-size: 30px;
+    text-align: center;
+}
+#resultsHr {
+    width: 5%;
+    margin-bottom: 30px;
+}

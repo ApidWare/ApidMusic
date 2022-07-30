@@ -1,0 +1,226 @@
+#bottomBar {
+  width: 100vw;
+  height: 10vh;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 3;
+}
+#nextButton, #prevButton {
+    transition: .4s;
+}
+#musicComponent {
+  margin: 20px;
+}
+#musicComponent > img {
+  margin: 10px;
+  transition: .3s;
+  /* padding: 10px; */
+}
+#musicComponent > img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+#musicInfo {
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+}
+#musicArt {
+    height: 150px;
+    width: 150px;
+    margin-left: 5px;
+    border-radius: 100px;
+    z-index: 3;
+    /* border: 2px solid; */
+}
+#musicArt:hover {
+    cursor: pointer;
+    border-radius: 10px;
+}
+#songInfo {
+    position: relative;
+    top: 8vh;
+    left: 1.5vh;
+    width: 100%;
+}
+#songTitle {
+    text-shadow: 0 0 10px #777;
+}
+#songArtist {
+    font-size: 17px;
+    color: #8b42ff;
+    text-shadow: 0 0 7px #aa76ff;
+}
+#playerLoading {
+    height: 50px;
+    width: 50px;
+    margin-top: 20px;
+    background: #8b42ff;
+    opacity: .2;
+    animation-name: loading;
+    animation-duration: .7s;
+    animation-iteration-count: infinite;
+        transform: scale(.2);
+}
+@keyframes loading {
+    50% {
+        opacity: .7;
+        transform: scale(1);
+        border-radius: 25px;
+    }
+}
+#totalSeek {
+    width: 95.8%;
+    height: 5px;
+    position: fixed;
+    bottom: 0px;
+    left: 4.2%;
+    z-index: 2;
+    transition: .2s;
+}
+#seekBar {
+    -webkit-appearance: none;
+    position: relative;
+    bottom: 10px;
+    width: 100%;
+    height: 100%;
+    transition: .4s;
+    border-radius: 1px;
+    overflow: hidden;
+}
+#seekBar::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    user-select: none;
+    height: 20px;
+    width: 0px;
+    border-radius: 20px;
+    background: #000;
+    box-shadow: -100vw 0 0 100vw #8b42ff;
+}
+#seekBar:hover {
+    cursor: pointer;
+    height: 8px;
+}
+#musicDuration {
+    display: flex;
+}
+#duration {
+    position: fixed;
+    right: 2%;
+    bottom: 4%;
+}
+#duration > span {
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 0 0 10px #777;
+}
+#bottomIcons {
+    position: fixed;
+    bottom: 3%;
+    right: 7.7%;
+}
+#volumeSlider {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #dadada;
+    border-radius: 20px;
+    position: fixed;
+    bottom: 16.5%;
+    right: 6.3%;
+    transform: rotate(-90deg);
+    overflow: hidden;
+    transition: .4s;
+    box-shadow: 0 0 10px #8b42ff;
+}
+#volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #8b42ff;
+    box-shadow: -100vw 0 0 100vw #8b42ff;
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+}
+#volumeSlider:hover {
+    transform: rotate(-90deg) scale(1.1);
+    cursor: pointer;
+}
+#volumeButton {
+    transition: .3s;
+    position: relative;
+    right: 22%;
+}
+#volumeButton:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+#bottomMenu {
+    transition: .3s;
+    position: relative;
+    right: 25%;
+}
+#bottomMenu:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+#favButton {
+    transition: .3s;
+    transform: scale(0.95);
+    position: relative;
+    right: 28%;
+}
+#favButton:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+#bottomMenuBox {
+    position: absolute;
+    top: -180%;
+    right: 8%;
+    border-radius: 15px;
+}
+.bottomMenuItem, .qualityMenuItem {
+    padding: 15px 20px;
+}
+.bottomMenuItem:hover, .qualityMenuItem:hover {
+    background: #a5a5a52a !important;
+    cursor: pointer;
+    border-radius: 7px;
+}
+div > #qualityText {
+    position: absolute;
+    top: 17px;
+    left: 35px;
+}
+#chevronLeft {
+    position: relative;
+    top: 0px;
+    right: 8px;
+}
+#qualityMenu {
+    position: absolute;
+    left: -205px;
+    top: -50px;
+    border-radius: 15px;
+    background: #eee;
+    box-shadow: 0 0 10px #777;
+}
+#qualityOption {
+    font-family: 'Montserrat', sans-serif;
+}
+#selectedQuality {
+    background: #ddd;
+}
+.qualityMenuItem {
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+}
+#qualitySetting {
+    margin-top: 3px;
+    margin-left: 2px;
+}

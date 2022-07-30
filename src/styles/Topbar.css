@@ -1,0 +1,147 @@
+#dialogBox {
+  font-size: 22px;
+  position: fixed;
+  right: 30px;
+  top: 100px;
+  background: #d6bcff;
+  color: #000;
+  border-radius: 10px;
+  padding: 10px 20px;
+  overflow: hidden;
+  box-shadow: 0 0 7px #777;
+  display: none;
+}
+#dialogText, #infoLogo {
+  display: inline;
+}
+#dialogText {
+  margin-left: 10px;
+}
+#infoLogo {
+  position: relative;
+  top: 3px;
+  left: -6px;
+  font-size: 22px;
+  background: #f7f5f5;
+  padding: 10px;
+  font-weight: 400;
+}
+
+#topBar {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 3;
+  position: fixed;
+  top: 0px;
+  right: 0;
+  width: 100vw;
+  height: 7vh;
+  z-index: 2;
+  text-align: center;
+  background-color: #fff;
+  border-top-left-radius: 30px;
+  box-shadow: 0 0 5px #777;
+}
+#searchBar {
+  margin: 12px;
+  margin-left: 10vw;
+}
+#searchBox {
+  padding: 7px;
+  padding-left: 15px;
+  width: 17vw;
+  font-size: 17px;
+  outline: none;
+  border-radius: 20px;
+  border-style: solid;
+}
+#searchBox:focus {
+  box-shadow: 0 0 10px #8b42ff;
+}
+#searchButton {
+  margin-left: -10px;
+  padding: 9px;
+  font-size: 15px;
+  font-weight: 600;
+  border: 2px solid #5a00eb;
+  border-radius: 20px;
+  border-style: solid;
+  background: #8b42ff;
+  color: #fff;
+  transition: .2s;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+#searchButton:hover {
+  cursor: pointer;
+  background: #6f16ff;
+}
+#userAccountPanel {
+  position: absolute;
+  top: 0;
+  right: 0.7vw;
+}
+#userAccountPanel > button {
+  font-size: 20px;
+  margin: 8px 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border-style: solid;
+  transition: .2s;
+}
+#userAccountPanel > button:hover {
+  cursor: pointer;
+  background: #6f16ff;
+  color: #fff;
+  transform: scale(1.1);
+}
+#loginButton {
+  background: transparent;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+#loginButton:hover {
+  color: #fff;
+}
+#signupButton {
+  background: #8b42ff;
+  color: #fff;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+#clearBox {
+  position: relative;
+  top: 5px;
+  right: 30px;
+  font-size: 22px;
+  visibility: hidden;
+}
+#clearBox:hover {
+  cursor: pointer;
+}
+#theme {
+  position: absolute;
+  top: 25%;
+  left: 16%;
+  width: 32px;
+}
+#themeButton {
+  transition: .3s;
+}
+#themeButton:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}

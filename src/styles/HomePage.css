@@ -1,0 +1,46 @@
+#homePage {
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 90vh;
+    width: 85vw;
+    margin-left: 15vw;
+    background: #fff;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+}
+#content {
+    margin-top: 10vh;
+}
+#greeting {
+    font-size: 40px;
+    margin-bottom: 35px;
+}
+#sectionTitle {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#homeCardContainer {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 250px 250px 250px 250px 250px;
+    grid-template-rows: 300px 300px;
+}
+#homeCardImg {
+    height: 200px;
+    width: 200px;
+    border-radius: 30px;
+    transition: .4s;
+}
+.homeCard {
+    height: 200px;
+    width: 200px;
+    text-align: center;
+}
+.homeCard:hover {
+    cursor: pointer;
+    opacity: .6;
+    text-decoration: underline;
+}

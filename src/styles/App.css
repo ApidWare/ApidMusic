@@ -1,0 +1,20 @@
+* {
+  font-family: 'Raleway', sans-serif;
+  transition: .2s;
+}
+a {
+  color: #8b42ff;
+  text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+img {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
