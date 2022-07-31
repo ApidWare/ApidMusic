@@ -27,41 +27,47 @@ let t = 0;
 let interval;
 export default function App() {
 
-  if (window.location.href.includes('explore')) {
-    document.getElementsByClassName('navMenuItem')[0].id="";
-    document.getElementsByClassName('navMenuItem')[1].id="active";
-    document.getElementsByClassName('navMenuItem')[2].id="";
-    document.getElementsByClassName('navMenuItem')[3].id="";
-    document.getElementsByClassName('navMenuItem')[4].id="";
-  }
-  else if (window.location.href.includes('trending')) {
-    document.getElementsByClassName('navMenuItem')[0].id="";
-    document.getElementsByClassName('navMenuItem')[1].id="";
-    document.getElementsByClassName('navMenuItem')[2].id="active";
-    document.getElementsByClassName('navMenuItem')[3].id="";
-    document.getElementsByClassName('navMenuItem')[4].id="";
-  }
-  else if (window.location.href.includes('topcharts')) {
-    document.getElementsByClassName('navMenuItem')[0].id="";
-    document.getElementsByClassName('navMenuItem')[1].id="";
-    document.getElementsByClassName('navMenuItem')[2].id="";
-    document.getElementsByClassName('navMenuItem')[3].id="active";
-    document.getElementsByClassName('navMenuItem')[4].id="";
-  }
-  else if (window.location.href.includes('mylibrary')) {
-    document.getElementsByClassName('navMenuItem')[0].id="";
-    document.getElementsByClassName('navMenuItem')[1].id="";
-    document.getElementsByClassName('navMenuItem')[2].id="";
-    document.getElementsByClassName('navMenuItem')[3].id="";
-    document.getElementsByClassName('navMenuItem')[4].id="active";
-  }
-  else {
-    document.getElementsByClassName('navMenuItem')[0].id="active";
-    document.getElementsByClassName('navMenuItem')[1].id="";
-    document.getElementsByClassName('navMenuItem')[2].id="";
-    document.getElementsByClassName('navMenuItem')[3].id="";
-    document.getElementsByClassName('navMenuItem')[4].id="";
-  }
+
+
+  useEffect(() => {
+    // Update the document title using the browser API
+    if (window.location.href.includes('explore')) {
+      document.getElementsByClassName('navMenuItem')[0].id="";
+      document.getElementsByClassName('navMenuItem')[1].id="active";
+      document.getElementsByClassName('navMenuItem')[2].id="";
+      document.getElementsByClassName('navMenuItem')[3].id="";
+      document.getElementsByClassName('navMenuItem')[4].id="";
+    }
+    else if (window.location.href.includes('trending')) {
+      document.getElementsByClassName('navMenuItem')[0].id="";
+      document.getElementsByClassName('navMenuItem')[1].id="";
+      document.getElementsByClassName('navMenuItem')[2].id="active";
+      document.getElementsByClassName('navMenuItem')[3].id="";
+      document.getElementsByClassName('navMenuItem')[4].id="";
+    }
+    else if (window.location.href.includes('topcharts')) {
+      document.getElementsByClassName('navMenuItem')[0].id="";
+      document.getElementsByClassName('navMenuItem')[1].id="";
+      document.getElementsByClassName('navMenuItem')[2].id="";
+      document.getElementsByClassName('navMenuItem')[3].id="active";
+      document.getElementsByClassName('navMenuItem')[4].id="";
+    }
+    else if (window.location.href.includes('mylibrary')) {
+      document.getElementsByClassName('navMenuItem')[0].id="";
+      document.getElementsByClassName('navMenuItem')[1].id="";
+      document.getElementsByClassName('navMenuItem')[2].id="";
+      document.getElementsByClassName('navMenuItem')[3].id="";
+      document.getElementsByClassName('navMenuItem')[4].id="active";
+    }
+    else {
+      document.getElementsByClassName('navMenuItem')[0].id="active";
+      document.getElementsByClassName('navMenuItem')[1].id="";
+      document.getElementsByClassName('navMenuItem')[2].id="";
+      document.getElementsByClassName('navMenuItem')[3].id="";
+      document.getElementsByClassName('navMenuItem')[4].id="";
+    }
+  });
+
 
 
 
@@ -120,7 +126,7 @@ export default function App() {
       setCurrentDuration(converter(currentDuration));
       setSeekValue(currentDuration);
       musicDuration();
-      if (currentDuration === totalMusicDuration) {
+      if ((currentDuration-10) >= totalMusicDuration) {
         music.pause();
         setPlayState(play);
         clearInterval(interval);
@@ -175,9 +181,8 @@ export default function App() {
     }
     setSearchQuery(search);
     fetchSearchResults(search);
-    navigate('/explore');
-  //   withRouter(({ history }) => (
-  //     history.push('/explore')));
+    navigate('/explore/topresults');
+    setSearchProgress(true);
   }
   while(document.title === '-') {
     if (musicState.songTitle) {
@@ -333,10 +338,19 @@ export default function App() {
       });
       setSearchLoadingState(false);
       setSearchProgress(true);
-      
-      
   }
 
+  function handleArtist() {
+    const artistQuery = musicState.songArtist;
+    let artist = ''
+    artistQuery.split(' ').forEach((element) => {
+      artist += element + '+';
+    })
+    window.open(
+      "https://duckduckgo.com/?q=" + artist,
+      '_blank'
+    );
+  }
 
 
 
@@ -344,68 +358,11 @@ export default function App() {
   return (
     <>
       <div id="body">
-        <nav style={{background: `${theme}`, color: `${textColor}`}}>
-            <div id="barTitle">
-                <img id="icon" src={icon} alt="ApidMusic icon"/> <span id="barTitleText">ApidMusic</span>
-            </div>
-            <div id="navMenu">
-                <div id="active" className="navMenuItem">
-                    <Link style={{color: `${textColor}`}} to="/">
-                        {/* <img className="navMenuIcon" src={home} alt="Home icon"/> */}
-                        <span id="navMenuIcon" class="material-symbols-outlined">home</span>
-                            <span className="navMenuText">
-                                Home
-                            </span>
-                    </Link>
-                </div>
-                <div className="navMenuItem">
-                    <Link style={{color: `${textColor}`}} to="/explore">
-                        {/* <img className="navMenuIcon" src={trending} alt="Trending icon"/> */}
-                        <span id="navMenuIcon" className="material-symbols-outlined">explore</span>
-                            <span className="navMenuText">
-                                Explore
-                            </span>
-                    </Link>
-                </div>
-                <div className="navMenuItem">
-                    <Link style={{color: `${textColor}`}} to="/trending">
-                        {/* <img className="navMenuIcon" src={trending} alt="Trending icon"/> */}
-                        <span id="navMenuIcon" class="material-symbols-outlined">local_fire_department</span>
-                            <span className="navMenuText">
-                                Trending
-                            </span>
-                    </Link>
-                </div>
-                <div className="navMenuItem">
-                    <Link style={{color: `${textColor}`}} to="/topcharts">
-                        {/* <img className="navMenuIcon" src={top} alt="Top Charts icon"/> */}
-                        <span id="navMenuIcon" class="material-symbols-outlined">whatshot</span>
-                            <span className="navMenuText">
-                                Top Charts
-                            </span>
-                    </Link>
-                </div>
-                <div className="navMenuItem">
-                    <Link style={{color: `${textColor}`}} to="/mylibrary">
-                        {/* <img className="navMenuIcon" src={library} alt="Your Library icon"/> */}
-                        <span id="navMenuIcon" className="material-symbols-outlined">library_music</span>
-                            <span className="navMenuText">
-                                My Library
-                            </span>
-                    </Link>
-                </div>
-            </div>
-            <div id="playQueue">
-                <div id="playQueueTitle">
-                    Your Queue
-                </div>
-                <div id="emptyQueue">
-                    <button style={{color: `${textColor}`}} id="createQueueButton">
-                        Create a queue +
-                    </button>
-                </div>
-            </div>
-        </nav>
+        
+        <Sidebar
+          theme={theme}
+          textColor={textColor}
+        />
 
         <Topbar
           handleSpace={handleSpace}
@@ -441,6 +398,7 @@ export default function App() {
           seekBarTheme={seekBarTheme}
           musicArtTheme={musicArtTheme}
           bottomBarTheme={bottomBarTheme}
+          handleArtist={handleArtist}
         />
         <Routes>
           <Route exact path="/" element={
@@ -455,7 +413,7 @@ export default function App() {
               />
           }>
           </Route>
-          <Route path="/explore" element={
+          <Route path="/explore/*" element={
             searchProgress && 
               <ExplorePage
                 theme={theme}
@@ -465,8 +423,8 @@ export default function App() {
                 setMusic={fetchSong}
                 searchLoadingState={searchLoadingState}
                 searchProgress={searchProgress}
+                searchQuery={searchQuery}
               />
-              
           }>
           </Route>
         </Routes>

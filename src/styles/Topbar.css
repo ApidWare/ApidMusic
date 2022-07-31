@@ -3,12 +3,11 @@
   position: fixed;
   right: 30px;
   top: 100px;
-  background: #d6bcff;
-  color: #000;
+  background: #333;
+  color: #fff;
   border-radius: 10px;
   padding: 10px 20px;
   overflow: hidden;
-  box-shadow: 0 0 7px #777;
   display: none;
 }
 #dialogText, #infoLogo {
@@ -22,7 +21,7 @@
   top: 3px;
   left: -6px;
   font-size: 22px;
-  background: #f7f5f5;
+  background: #555;
   padding: 10px;
   font-weight: 400;
 }

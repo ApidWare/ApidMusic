@@ -78,7 +78,7 @@ function Bottombar(props) {
             <img style={{boxShadow: `${props.musicArtTheme}`}} draggable={false} id="musicArt" src={props.musicArt} alt="Music art" />
             <div id="songInfo">
                 <div id="songTitle">{props.songTitle && props.songTitle.replace('&#39;',"'")}</div>
-                <div id="songArtist"><a href="/">{props.songArtist}</a></div>
+                <div onClick={props.handleArtist} id="songArtist">{props.songArtist}</div>
             </div>
         </div>
         {(props.seekBar) &&

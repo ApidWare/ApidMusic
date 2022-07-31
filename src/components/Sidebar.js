@@ -9,13 +9,12 @@ import { Link, Router } from 'react-router-dom'
 
 function Sidebar(props) {
   return (
-    <Router>
     <nav style={{background: `${props.theme}`, color: `${props.textColor}`}}>
         <div id="barTitle">
             <img id="icon" src={icon} alt="ApidMusic icon"/> <span id="barTitleText">ApidMusic</span>
         </div>
         <div id="navMenu">
-            <div onClick={props.tabsHandler} className="navMenuItem">
+            <div id="active" className="navMenuItem">
                 <Link style={{color: `${props.textColor}`}} to="/">
                     {/* <img className="navMenuIcon" src={home} alt="Home icon"/> */}
                     <span id="navMenuIcon" class="material-symbols-outlined">home</span>
@@ -24,7 +23,7 @@ function Sidebar(props) {
                         </span>
                 </Link>
             </div>
-            <div onClick={props.tabsHandler} id="active" className="navMenuItem">
+            <div className="navMenuItem">
                 <Link style={{color: `${props.textColor}`}} to="/explore">
                     {/* <img className="navMenuIcon" src={trending} alt="Trending icon"/> */}
                     <span id="navMenuIcon" className="material-symbols-outlined">explore</span>
@@ -33,7 +32,7 @@ function Sidebar(props) {
                         </span>
                 </Link>
             </div>
-            <div onClick={props.tabsHandler} className="navMenuItem">
+            <div className="navMenuItem">
                 <Link style={{color: `${props.textColor}`}} to="/trending">
                     {/* <img className="navMenuIcon" src={trending} alt="Trending icon"/> */}
                     <span id="navMenuIcon" class="material-symbols-outlined">local_fire_department</span>
@@ -42,7 +41,7 @@ function Sidebar(props) {
                         </span>
                 </Link>
             </div>
-            <div onClick={props.tabsHandler} className="navMenuItem">
+            <div className="navMenuItem">
                 <Link style={{color: `${props.textColor}`}} to="/topcharts">
                     {/* <img className="navMenuIcon" src={top} alt="Top Charts icon"/> */}
                     <span id="navMenuIcon" class="material-symbols-outlined">whatshot</span>
@@ -51,7 +50,7 @@ function Sidebar(props) {
                         </span>
                 </Link>
             </div>
-            <div onClick={props.tabsHandler} className="navMenuItem">
+            <div className="navMenuItem">
                 <Link style={{color: `${props.textColor}`}} to="/mylibrary">
                     {/* <img className="navMenuIcon" src={library} alt="Your Library icon"/> */}
                     <span id="navMenuIcon" className="material-symbols-outlined">library_music</span>
@@ -66,13 +65,12 @@ function Sidebar(props) {
                 Your Queue
             </div>
             <div id="emptyQueue">
-                <button style={{color: `${props.textColor}`}} onClick={props.tabsHandler} id="createQueueButton">
+                <button style={{color: `${props.textColor}`}} id="createQueueButton">
                     Create a queue +
                 </button>
             </div>
         </div>
     </nav>
-    </Router>
   )
 }
 

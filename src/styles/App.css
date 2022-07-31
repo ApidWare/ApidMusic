@@ -3,12 +3,7 @@
   transition: .2s;
 }
 a {
-  color: #8b42ff;
   text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
-    cursor: pointer;
 }
 img {
   -webkit-touch-callout: none;

@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import '../../styles/ExplorePage.css'
 import defaultImg from '../../resources/default.png';
+import TopResultsSongs from './TopResultsSongs';
+import TopResultsArtists from './TopResultsArtists';
+import TopResultsAlbums from './TopResultsAlbums';
 import fav from '../../resources/fav.png';
 import unfav from '../../resources/unfav.png';
 import dots from '../../resources/dots.png';
@@ -10,23 +13,65 @@ function TopResults(props) {
     const [musicArt, setMusicArt] = useState(defaultImg);
     const [songState, setSongState] = useState('');
   return (
-    <div style={{background: `${props.boxColor}`}} className="topSearchResult">
-        {props.musicArt && 
-            <img id="topMusicArt" src={props.musicArt} alt={defaultImg} />
-        }
-        {!props.musicArt && 
-            <img id="topMusicArt" src={defaultImg} alt={defaultImg} />
-        }
-        <div id="topSongInfo">
-            <div id="topSongTitle">{props.songName}</div>
-            <div id="topSongArtist">{props.songArtist}</div>
-        </div>
-        <div id="topIcons">
-            <img onClick={() => {props.playMusic(props.songID)}} id="searchedPlayButton" className="searchedIcons" src={play} alt="" />
-            <img id="searchedFavButton" className="searchedIcons" src={unfav} alt="" />
-            <img id="searchedOptionButton" className="searchedIcons" src={dots} alt="" />
-        </div>
-    </div>
+    <>
+        <div className="topSearchTitle" id="songsTitle">Songs</div>
+        <section className="topSearchResults" id="topResultsSongs">
+            {props.searchResult.results.songs.data.map(element => {
+                return (
+                    <TopResultsSongs
+                        songName={element.title}
+                        songArtist={element.more_info.primary_artists}
+                        musicArt={element.image}
+                        songID={element.id}
+                        theme={props.theme}
+                        textColor={props.textColor}
+                        boxColor={props.boxColor}
+                        playMusic={props.playMusic}
+                    />
+                )
+            })
+            }
+            <hr id="resultsHr" />
+        </section>
+        <div className="topSearchTitle" id="songsTitle">Albums</div>
+        <section className="topSearchResults" id="topResultsAlbums">
+            {props.searchResult.results.albums.data.map(element => {
+                return (
+                    <TopResultsAlbums
+                        songName={element.title}
+                        songArtist={element.music}
+                        musicArt={element.image}
+                        songID={element.id}
+                        theme={props.theme}
+                        textColor={props.textColor}
+                        boxColor={props.boxColor}
+                        playMusic={props.playMusic}
+                    />
+                )
+            })
+            }
+            <hr id="resultsHr" />
+        </section>
+        <div className="topSearchTitle" id="songsTitle">Artists</div>
+        <section className="topSearchResults" id="topResultsArtists">
+            {props.searchResult.results.artists.data.map(element => {
+                return (
+                    <TopResultsArtists
+                        artistName={element.title}
+                        artistProfile={element.image}
+                        artistDescription={element.description}
+                        artistID={element.id}
+                        theme={props.theme}
+                        textColor={props.textColor}
+                        boxColor={props.boxColor}
+                        playMusic={props.playMusic}
+                    />
+                )
+            })
+            }
+            <hr style={{width: '20%'}} id="resultsHr" />
+        </section>
+    </>
   )
 }
 

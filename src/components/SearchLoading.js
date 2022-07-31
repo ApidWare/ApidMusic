@@ -1,9 +1,9 @@
 import React from 'react'
 import '../styles/ExplorePage.css';
 
-function Playerloading() {
+function Playerloading(props) {
   return (
-    <section id="searchLoadingContainer">
+    <section style={{margin: `${props.margin}`}} id="searchLoadingContainer">
         <div id="searchLoading"></div>
     </section>
   )

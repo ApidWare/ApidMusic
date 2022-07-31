@@ -57,6 +57,11 @@
     color: #8b42ff;
     text-shadow: 0 0 7px #aa76ff;
 }
+#songArtist:hover {
+    /* border-bottom: 1px solid; */
+    text-decoration: underline;
+    cursor: pointer;
+}
 #playerLoading {
     height: 50px;
     width: 50px;
