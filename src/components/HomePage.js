@@ -1,27 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../styles/HomePage.css'
 import HomePageCards from './HomePageCards'
 
 function HomePage(props) {
 
-    const homeState = {
-        greeting: "Hi there.",
-        loading: false,
-        results: [],
-        homeCardTitle: "Sample title",
-        homeCardImg: "https://dummyimage.com/150x150"
-    };
-
   return (
     <section style={{background: `${props.theme}`, color: `${props.textColor}`}} id="homePage">
         <div id="content">
             <div id="greeting">
-                {homeState.greeting}
+                {props.greeting}
             </div>
+            {props.homeState.results.new_albums.map((element) => {
+                return(
                 <HomePageCards
-                homeCardImg={homeState.homeCardImg}
-                homeCardTitle={homeState.homeCardTitle}
-                />
+                    homeCardImg={element.title}
+                    homeCardTitle={element.image}
+                />)
+            })}
             <div id="sectionTitle">
                 New Releases
             </div>

@@ -68,9 +68,6 @@ export default function App() {
     }
   });
 
-
-
-
   const navigate = useNavigate();
   const [playState, setPlayState] = useState(play);
   const [seekValue, setSeekValue] = useState("0");
@@ -186,7 +183,7 @@ export default function App() {
   }
   while(document.title === '-') {
     if (musicState.songTitle) {
-      document.title = `${musicState.songArtist} - ${musicState.songTitle}`;
+      document.title = `${musicState.songArtist} - ${musicState.songTitle} | ApidMusic`;
     }
     else {
       document.title = "ApidMusic - Listen Freely";
@@ -196,7 +193,9 @@ export default function App() {
     const music = document.getElementById("music");
     const prevButton = document.getElementById("prevButton");
     const nextButton = document.getElementById("nextButton");
-    document.title = `${musicState.songArtist} - ${musicState.songTitle}`;
+    while (document.title !== `${musicState.songArtist} - ${musicState.songTitle} | ApidMusic`) {
+      document.title = `${musicState.songArtist} - ${musicState.songTitle} | ApidMusic`;
+    }
     if (x % 2 === 0) {
       music.play();
       setPlayState(pause);
@@ -355,6 +354,38 @@ export default function App() {
 
 
 
+
+
+    const [homeState, setHomeState] = useState({
+      loading: true,
+      results: {
+          greeting: "Hi there.",
+          new_albums:[]
+      },
+      homeCardTitle: "Sample title",
+      homeCardImg: "https://dummyimage.com/150x150"
+    })
+
+
+    async function fetchHomeData() {
+        setHomeState({
+            loading: true
+        });
+      let url = "https://saavn.me/home";
+      let data = await fetch(url);
+      let parsedData = await data.json();
+
+      setHomeState({
+        loading: false,
+        greeting: parsedData.results.greeting,
+        results: parsedData.results
+      });
+      console.log(parsedData)
+    }
+    fetchHomeData();
+
+
+
   return (
     <>
       <div id="body">
@@ -402,6 +433,7 @@ export default function App() {
         />
         <Routes>
           <Route exact path="/" element={
+            !homeState.loading &&
               <HomePage
                 theme={theme}
                 textColor={textColor}
@@ -410,6 +442,8 @@ export default function App() {
                 setMusic={fetchSong}
                 searchLoadingState={searchLoadingState}
                 searchProgress={searchProgress}
+                results={homeState.results}
+                greeting={homeState.results.greeting}
               />
           }>
           </Route>
