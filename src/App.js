@@ -352,10 +352,6 @@ export default function App() {
   }
 
 
-
-
-
-
     const [homeState, setHomeState] = useState({
       loading: true,
       results: {
