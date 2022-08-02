@@ -16,6 +16,9 @@ function HomePage(props) {
                 {props.results.greeting.includes('Dream') &&
                     <img id="handWaveEmoji" src="https://c.tenor.com/wNzoikuVQDUAAAAi/sleeping-face-joypixels.gif" alt="" />
                 }
+                {props.results.greeting.includes('Night') &&
+                    <img id="handWaveEmoji" src="https://c.tenor.com/wNzoikuVQDUAAAAi/sleeping-face-joypixels.gif" alt="" />
+                }
                 {props.results.greeting.includes('Rise') &&
                     <img style={{marginLeft: '5px'}} id="handWaveEmoji" src="https://c.tenor.com/0l3zCp-KLX4AAAAi/pictia-nft.gif" alt="" />
                 }
