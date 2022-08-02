@@ -22,7 +22,7 @@ function TopResults(props) {
                 <div id="searchedSongTitle">{props.songName}</div>
                 <div id="searchedSongArtist">{props.songArtist}</div>
             </div>
-            <div id="searchedIcons">
+            <div id="searchedAlbumIcons">
                 <img onClick={() => {props.playMusic(props.songID)}} id="searchedPlayButton" className="searchedIcons" src={play} alt="" />
                 <img id="searchedFavButton" className="searchedIcons" src={unfav} alt="" />
                 <img id="searchedOptionButton" className="searchedIcons" src={dots} alt="" />

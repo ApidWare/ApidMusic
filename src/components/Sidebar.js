@@ -11,7 +11,15 @@ function Sidebar(props) {
   return (
     <nav style={{background: `${props.theme}`, color: `${props.textColor}`}}>
         <div id="barTitle">
-            <img id="icon" src={icon} alt="ApidMusic icon"/> <span id="barTitleText">ApidMusic</span>
+            <img id="icon" src={icon} alt="ApidMusic icon"/>
+            <div id="titleTextContainer">
+                <div id="barTitleText">
+                    Rhythmie
+                </div>
+                <div id="alpha">
+                    Alpha
+                </div>
+            </div>
         </div>
         <div id="navMenu">
             <div id="active" className="navMenuItem">
@@ -24,7 +32,7 @@ function Sidebar(props) {
                 </Link>
             </div>
             <div className="navMenuItem">
-                <Link style={{color: `${props.textColor}`}} to="/explore">
+                <Link onClick={props.mountExplore} style={{color: `${props.textColor}`}} to="/explore">
                     {/* <img className="navMenuIcon" src={trending} alt="Trending icon"/> */}
                     <span id="navMenuIcon" className="material-symbols-outlined">explore</span>
                         <span className="navMenuText">

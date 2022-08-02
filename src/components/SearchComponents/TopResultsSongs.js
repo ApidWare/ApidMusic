@@ -5,6 +5,7 @@ import fav from '../../resources/fav.png';
 import unfav from '../../resources/unfav.png';
 import dots from '../../resources/dots.png';
 import play from '../../resources/play.png';
+import download from '../../resources/download.png';
 
 function TopResults(props) {
     const [musicArt, setMusicArt] = useState(defaultImg);
@@ -23,9 +24,10 @@ function TopResults(props) {
                 <div id="searchedSongArtist">{props.songArtist}</div>
             </div>
         <div id="searchedIcons">
-            <img onClick={() => {props.playMusic(props.songID)}} id="searchedPlayButton" className="searchedIcons" src={play} alt="" />
-            <img id="searchedFavButton" className="searchedIcons" src={unfav} alt="" />
-            <img id="searchedOptionButton" className="searchedIcons" src={dots} alt="" />
+            <img draggable={false} onClick={() => {props.playMusic(props.songID)}} id="searchedPlayButton" className="searchedIcons" src={play} alt="" />
+            <img draggable={false} id="downloadSearchButton" className="searchedIcons" src={download} alt="" />
+            <img draggable={false} id="searchedFavButton" className="searchedIcons" src={unfav} alt="" />
+            <img draggable={false} id="searchedOptionButton" className="searchedIcons" src={dots} alt="" />
         </div>
         </div>
     </div>

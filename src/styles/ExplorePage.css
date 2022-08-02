@@ -107,6 +107,22 @@
     display: flex;
     align-items: center;
     position: relative;
+    left: 5%;
+    height: 100px;
+    width: 100px;
+}
+#searchedAlbumIcons {
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 10%;
+    height: 100px;
+    width: 100px;
+}
+#searchedArtistIcons {
+    display: flex;
+    align-items: center;
+    position: relative;
     left: 10%;
     height: 100px;
     width: 100px;
@@ -118,6 +134,10 @@
 .searchedIcons:hover {
     transform: scale(1.1);
     cursor: pointer;
+}
+#downloadSearchButton {
+    width: 24px;
+    margin-left: 7px;
 }
 #totalMusicDuration {
     font-family: 'Montserrat', sans-serif;
@@ -165,11 +185,11 @@
 }
 ::-webkit-scrollbar {
     background: transparent;
+    width: 10px;
 }
 ::-webkit-scrollbar-thumb {
     background: #8b42ff;
     border-radius: 20px;
-    box-shadow: 0 0 10px #8b42ff;
 }
 #searchedTitle {
     font-size: 40px;
@@ -210,6 +230,39 @@
     text-align: center;
 }
 #resultsHr {
-    width: 5%;
+    width: 15%;
     margin-bottom: 30px;
+}
+#topSearchesContainer {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+#topSearchesText {
+    font-size: 35px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid;
+}
+#topSearch {
+    padding: 15px 0;
+    font-size: 20px;
+}
+#topSearchesIcon {
+    padding-top: 15px;
+    padding-right: 10px;
+}
+#topSearches {
+    display: flex;
+    transition: .1s;
+}
+#topSearchesIcon {
+    height: 35px;
+    margin-left: 10px;
+}
+#topSearches:hover {
+    cursor: pointer;
+    color: #8d3eff;
 }

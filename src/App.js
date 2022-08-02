@@ -21,10 +21,13 @@ import themeOff from  './resources/themeOff.png';
 import ExplorePage from './components/ExplorePage';
 import './styles/Sidebar.css';
 import icon from "./resources/icon.png";
+import TopSearches from './components/SearchComponents/TopSearches';
+import WorkInProgress from './components/WorkInProgress';
 
 let x = 0
 let t = 0;
 let interval;
+let homePageResults = [];
 export default function App() {
 
 
@@ -67,6 +70,10 @@ export default function App() {
       document.getElementsByClassName('navMenuItem')[4].id="";
     }
   });
+  useEffect(() => {
+    fetchHomeData();
+  }, [])
+  
 
   const navigate = useNavigate();
   const [playState, setPlayState] = useState(play);
@@ -181,21 +188,35 @@ export default function App() {
     navigate('/explore/topresults');
     setSearchProgress(true);
   }
+  function topSearchHandler(query) {
+    let searchQuery = query.split(' ');
+    let search = '';
+    for (let i = 0 ; i < searchQuery.length ; i++) {
+      search += searchQuery[i] + '+'
+    }
+    setSearchQuery(search);
+    fetchSearchResults(search);
+    navigate('/explore/topresults');
+    setSearchProgress(true);
+  }
+  const mountExplore = () => {
+    setSearchProgress(true);
+  }
   while(document.title === '-') {
     if (musicState.songTitle) {
-      document.title = `${musicState.songArtist} - ${musicState.songTitle} | ApidMusic`;
+      document.title = `${musicState.songArtist} - ${musicState.songTitle} | Rhythmie`;
     }
     else {
-      document.title = "ApidMusic - Listen Freely";
+      document.title = "Rhythmie - Listen Freely";
     }
   }
   function music() {
     const music = document.getElementById("music");
     const prevButton = document.getElementById("prevButton");
     const nextButton = document.getElementById("nextButton");
-    while (document.title !== `${musicState.songArtist} - ${musicState.songTitle} | ApidMusic`) {
-      document.title = `${musicState.songArtist} - ${musicState.songTitle} | ApidMusic`;
-    }
+    document.title = `${musicState.songArtist} - ${musicState.songTitle} | Rhythmie`;
+    // while (document.title !== `${musicState.songArtist} - ${musicState.songTitle} | Rhythmie`) {
+    // }
     if (x % 2 === 0) {
       music.play();
       setPlayState(pause);
@@ -361,24 +382,24 @@ export default function App() {
       homeCardTitle: "Sample title",
       homeCardImg: "https://dummyimage.com/150x150"
     })
+    const [homeResults, setHomeResults] = useState([]);
 
 
-    async function fetchHomeData() {
+     const fetchHomeData = async () => {
+      let url = "https://saavn.me/home";
         setHomeState({
             loading: true
         });
-      let url = "https://saavn.me/home";
       let data = await fetch(url);
       let parsedData = await data.json();
 
       setHomeState({
         loading: false,
-        greeting: parsedData.results.greeting,
-        results: parsedData.results
+        greeting: parsedData.results.greeting
       });
-      console.log(parsedData)
+      homePageResults.push(parsedData);
+      console.log(homePageResults)
     }
-    fetchHomeData();
 
 
 
@@ -389,6 +410,7 @@ export default function App() {
         <Sidebar
           theme={theme}
           textColor={textColor}
+          mountExplore={mountExplore}
         />
 
         <Topbar
@@ -438,9 +460,12 @@ export default function App() {
                 setMusic={fetchSong}
                 searchLoadingState={searchLoadingState}
                 searchProgress={searchProgress}
-                results={homeState.results}
-                greeting={homeState.results.greeting}
+                results={homePageResults[0].results}
               />
+          }>
+          </Route>
+          <Route path="/trending" element={
+              <TrendingPage />
           }>
           </Route>
           <Route path="/explore/*" element={
@@ -454,6 +479,8 @@ export default function App() {
                 searchLoadingState={searchLoadingState}
                 searchProgress={searchProgress}
                 searchQuery={searchQuery}
+                results={homePageResults[0].results}
+                handleTopSearch={topSearchHandler}
               />
           }>
           </Route>

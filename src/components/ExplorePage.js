@@ -11,6 +11,9 @@ import {
   useNavigate
 } from "react-router-dom";
 import SongResults from './SearchComponents/SongResults';
+import TopSearches from './SearchComponents/TopSearches';
+import AlbumResults from './SearchComponents/AlbumResults';
+import ArtistResults from './SearchComponents/ArtistResults';
 
 function ExplorePage(props) {
     const [searchLoadingState, setSearchLoadingState] = useState(false);
@@ -60,6 +63,44 @@ function ExplorePage(props) {
         setSearchProgress(true);
         console.log(searchQuery)
     }
+    function albumResults() {
+        fetchAlbumResults(props.searchQuery);
+    }
+    async function fetchAlbumResults(searchQuery) {
+        setSearchLoadingState(true);
+        setSearchResult({
+        results: [{
+            image:[{link: defaultImg}]
+        }]
+        });
+        let url = `https://saavn.me/search/albums?query=${searchQuery}`;
+        let data = await fetch(url);
+        let parsedData = await data.json();
+        setSearchResult({
+            results: parsedData.results
+        });
+        setSearchLoadingState(false);
+        setSearchProgress(true);
+        console.log(searchQuery)
+    }
+    const searchAlbum = () => {
+        alert("Album was searched");
+    }
+
+
+
+    function handleArtist() {
+        const artistQuery = props.musicState.songArtist;
+        let artist = ''
+        artistQuery.split(' ').forEach((element) => {
+        artist += element + '+';
+        })
+        window.open(
+        "https://duckduckgo.com/?q=" + artist,
+        '_blank'
+        );
+    }
+
   return (
     <section id="explorePage">
             {props.searchLoadingState && <SearchLoading />}
@@ -68,7 +109,19 @@ function ExplorePage(props) {
                 <div id="results">
                     <Routes>
                         <Route path='/' element={
-                            <div>Explore Page</div>
+                            <div id="topSearchesContainer">
+                                <div id="topSearchesText">Top Searches
+                                <img id="topSearchesIcon" src="https://c.tenor.com/S8dOItPNscgAAAAi/loop-loading.gif" alt="" /></div>
+                                
+                                {props.results.new_trending.map((element) => {
+                                    return(
+                                        <TopSearches
+                                            title={element.title}
+                                            handleTopSearch={props.handleTopSearch}
+                                        />
+                                    )
+                                })}
+                            </div>
                         }></Route>
                         <Route path='/topresults' element={
                             <>
@@ -79,7 +132,7 @@ function ExplorePage(props) {
                                     <div onClick={songResults} style={{color: `${props.textColor}`}} class="searchedMusicTitle">
                                         <Link style={{color: `${props.textColor}`}} to="/explore/songs">Songs</Link>
                                     </div>
-                                    <div style={{color: `${props.textColor}`}} class="searchedMusicTitle">
+                                    <div onClick={albumResults} style={{color: `${props.textColor}`}} class="searchedMusicTitle">
                                         <Link style={{color: `${props.textColor}`}} to="/explore/albums">Albums</Link>
                                     </div>
                                     <div style={{color: `${props.textColor}`}} class="searchedMusicTitle">
@@ -108,7 +161,7 @@ function ExplorePage(props) {
                                     <div onClick={songResults} style={{color: `${props.textColor}`}} id="activeMusicTitle" class="searchedMusicTitle">
                                         <Link style={{color: `${props.textColor}`}} to="/explore/songs">Songs</Link>
                                     </div>
-                                    <div style={{color: `${props.textColor}`}} class="searchedMusicTitle">
+                                    <div onClick={albumResults} style={{color: `${props.textColor}`}} class="searchedMusicTitle">
                                         <Link style={{color: `${props.textColor}`}} to="/explore/albums">Albums</Link>
                                     </div>
                                     <div style={{color: `${props.textColor}`}} class="searchedMusicTitle">
@@ -124,6 +177,64 @@ function ExplorePage(props) {
                                     searchLoadingState={searchLoadingState}
                                     searchProgress={props.searchProgress}
                                     playMusic={playMusic}
+                                />
+                            </>
+                            }>
+                        </Route>
+                        <Route path='/albums' element={
+                            <>
+                                <div id="searchedTitle">
+                                    <div style={{color: `${props.textColor}`}} class="searchedMusicTitle">
+                                        <Link style={{color: `${props.textColor}`}} to="/explore/topresults">Top Results</Link>
+                                    </div>
+                                    <div onClick={songResults} style={{color: `${props.textColor}`}} class="searchedMusicTitle">
+                                        <Link style={{color: `${props.textColor}`}} to="/explore/songs">Songs</Link>
+                                    </div>
+                                    <div onClick={albumResults} style={{color: `${props.textColor}`}} id="activeMusicTitle" class="searchedMusicTitle">
+                                        <Link style={{color: `${props.textColor}`}} to="/explore/albums">Albums</Link>
+                                    </div>
+                                    <div style={{color: `${props.textColor}`}} class="searchedMusicTitle">
+                                        <Link style={{color: `${props.textColor}`}} to="/explore/artists">Artists</Link>
+                                    </div>
+                                </div>
+                                <AlbumResults
+                                    theme={props.theme}
+                                    textColor={props.textColor}
+                                    boxColor={props.boxColor}
+                                    searchResult={searchResult}
+                                    setMusic={props.setMusic}
+                                    searchLoadingState={searchLoadingState}
+                                    searchProgress={props.searchProgress}
+                                    searchAlbum={searchAlbum}
+                                />
+                            </>
+                            }>
+                        </Route>
+                        <Route path='/artists' element={
+                            <>
+                                <div id="searchedTitle">
+                                    <div style={{color: `${props.textColor}`}} class="searchedMusicTitle">
+                                        <Link style={{color: `${props.textColor}`}} to="/explore/topresults">Top Results</Link>
+                                    </div>
+                                    <div onClick={songResults} style={{color: `${props.textColor}`}} class="searchedMusicTitle">
+                                        <Link style={{color: `${props.textColor}`}} to="/explore/songs">Songs</Link>
+                                    </div>
+                                    <div onClick={albumResults} style={{color: `${props.textColor}`}} class="searchedMusicTitle">
+                                        <Link style={{color: `${props.textColor}`}} to="/explore/albums">Albums</Link>
+                                    </div>
+                                    <div style={{color: `${props.textColor}`}} id="activeMusicTitle" class="searchedMusicTitle">
+                                        <Link style={{color: `${props.textColor}`}} to="/explore/artists">Artists</Link>
+                                    </div>
+                                </div>
+                                <ArtistResults
+                                    theme={props.theme}
+                                    textColor={props.textColor}
+                                    boxColor={props.boxColor}
+                                    searchResult={props.searchResult}
+                                    setMusic={props.setMusic}
+                                    searchLoadingState={searchLoadingState}
+                                    searchProgress={props.searchProgress}
+                                    searchAlbum={searchAlbum}
                                 />
                             </>
                             }>

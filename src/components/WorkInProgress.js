@@ -3,8 +3,9 @@ import React from 'react'
 function WorkInProgress() {
   return (
     <>
+    <img src="https://c.tenor.com/jNgKSlUpmkEAAAAC/typing-laptop.gif" alt="" />
       <div>
-        Work still in Progress 
+        Work in Progress
       </div> 
     </>
   )

@@ -8,6 +8,7 @@ import volume from '../resources/volume.png';
 import volume2 from '../resources/volume2.png';
 import fav from '../resources/fav.png';
 import unfav from '../resources/unfav.png';
+import download from '../resources/download.png';
 
 let v = 0;
 let f = 0;
@@ -124,6 +125,7 @@ function Bottombar(props) {
                     <div id="playlistButton" className="bottomMenuItem">Share</div>
                 </div>
                 <div id="bottomIcons">
+                    <img draggable={false} onClick={favoriteHandler} id="downloadButton" src={download} alt="" />
                     <img draggable={false} onClick={favoriteHandler} id="favButton" src={favButton} alt="" />
                     <img draggable={false} onClick={bottomMenuHandler} id="bottomMenu" src={dots} alt="" />
                     <img draggable={false} onClick={showSlider} id="volumeButton" src={volumeButton} alt="" />

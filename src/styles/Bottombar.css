@@ -82,9 +82,9 @@
 }
 #totalSeek {
     width: 95.8%;
-    height: 5px;
+    height: 7px;
     position: fixed;
-    bottom: 0px;
+    bottom: -2px;
     left: 4.2%;
     z-index: 2;
     transition: .2s;
@@ -96,7 +96,7 @@
     width: 100%;
     height: 100%;
     transition: .4s;
-    border-radius: 1px;
+    border-radius: 4px;
     overflow: hidden;
 }
 #seekBar::-webkit-slider-thumb{
@@ -110,7 +110,7 @@
 }
 #seekBar:hover {
     cursor: pointer;
-    height: 8px;
+    height: 10px;
 }
 #musicDuration {
     display: flex;
@@ -228,4 +228,13 @@ div > #qualityText {
 #qualitySetting {
     margin-top: 3px;
     margin-left: 2px;
+}
+#downloadButton {
+    width: 28px;
+    position: relative;
+    right: 36%;
+}
+#downloadButton:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }

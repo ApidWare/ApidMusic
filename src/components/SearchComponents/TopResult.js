@@ -69,7 +69,7 @@ function TopResults(props) {
                 )
             })
             }
-            <hr style={{width: '20%'}} id="resultsHr" />
+            <hr style={{width: '25%'}} id="resultsHr" />
         </section>
     </>
   )

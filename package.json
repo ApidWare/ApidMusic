@@ -1,6 +1,6 @@
 {
-  "name": "apidmusic",
-  "version": "0.8.0",
+  "name": "rhythmie",
+  "version": "0.9.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
