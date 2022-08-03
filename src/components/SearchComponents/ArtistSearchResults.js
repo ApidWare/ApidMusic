@@ -17,7 +17,7 @@ function ArtistSearchResults(props) {
         }
         <div id="searchedSongInfo">
             <div id="actualInfo">
-                <div id="searchedSongTitle">{props.artistName}</div>
+                <div style={{color: props.textColor}} id="searchedSongTitle">{props.artistName}</div>
                 <div id="searchedSongArtist">{props.artistDescription}</div>
             </div>
             <div id="searchedIcons">

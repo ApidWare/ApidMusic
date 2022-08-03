@@ -14,7 +14,7 @@ function TopResults(props) {
     const [songState, setSongState] = useState('');
   return (
     <>
-        <div className="topSearchTitle" id="songsTitle">Songs</div>
+        <div style={{color: props.textColor}} className="topSearchTitle" id="songsTitle">Songs</div>
         <section className="topSearchResults" id="topResultsSongs">
             {props.searchResult.results.songs.data.map(element => {
                 return (
@@ -33,7 +33,7 @@ function TopResults(props) {
             }
             <hr id="resultsHr" />
         </section>
-        <div className="topSearchTitle" id="songsTitle">Albums</div>
+        <div style={{color: props.textColor}} className="topSearchTitle" id="songsTitle">Albums</div>
         <section className="topSearchResults" id="topResultsAlbums">
             {props.searchResult.results.albums.data.map(element => {
                 return (
@@ -52,7 +52,7 @@ function TopResults(props) {
             }
             <hr id="resultsHr" />
         </section>
-        <div className="topSearchTitle" id="songsTitle">Artists</div>
+        <div style={{color: props.textColor}} className="topSearchTitle" id="songsTitle">Artists</div>
         <section className="topSearchResults" id="topResultsArtists">
             {props.searchResult.results.artists.data.map(element => {
                 return (

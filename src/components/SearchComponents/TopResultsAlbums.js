@@ -19,7 +19,7 @@ function TopResults(props) {
         }
         <div id="searchedSongInfo">
             <div id="actualInfo">
-                <div id="searchedSongTitle">{props.songName}</div>
+                <div style={{color: props.textColor}} id="searchedSongTitle">{props.songName}</div>
                 <div id="searchedSongArtist">{props.songArtist}</div>
             </div>
             <div id="searchedAlbumIcons">

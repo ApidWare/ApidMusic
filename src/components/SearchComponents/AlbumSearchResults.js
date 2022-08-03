@@ -18,7 +18,7 @@ function AlbumSearchResults(props) {
         }
         <div id="searchedSongInfo">
             <div id="actualInfo">
-                <div id="searchedSongTitle">{props.albumName}</div>
+                <div style={{color: props.textColor}} id="searchedSongTitle">{props.albumName}</div>
                 <div id="searchedSongArtist">{props.albumArtist}</div>
             </div>
             <div id="searchedIcons">

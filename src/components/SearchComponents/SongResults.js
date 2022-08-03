@@ -33,7 +33,7 @@ function SongResults(props) {
                 )
             })
             }
-            <div id="seeMore">
+            <div style={{color: props.textColor}} id="seeMore">
                 See more results
             </div>
             <hr style={{width: '15%'}} id="resultsHr" />
