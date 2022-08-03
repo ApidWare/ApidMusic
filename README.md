@@ -1,14 +1,14 @@
-# ApidMusic - Listen Freely.
+# Rhythmie - Listen Freely.
 
-[![GitHub package.json version](https://img.shields.io/github/package-json/v/apidware/apidmusic?style=plastic)](https://github.com/ApidWare/ApidMusic)
-[![GitHub license](https://img.shields.io/github/license/ApidWare/ApidMusic?style=plastic)](https://github.com/ApidWare/ApidMusic/blob/main/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/apidware/apidmusic?style=plastic)](https://github.com/ApidWare/ApidMusic/issues)
-[![Website](https://img.shields.io/website?down_color=red&down_message=down&style=plastic&up_color=green&up_message=up&url=https%3A%2F%2Fapidmusic.netlify.app)](https://apidmusic.netlify.app)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/w/apidware/apidmusic?style=plastic)](https://github.com/ApidWare/ApidMusic)
-[![GitHub forks](https://img.shields.io/github/forks/apidware/apidmusic?style=social)](https://github.com/ApidWare/ApidMusic)
+[![GitHub package.json version](https://img.shields.io/github/package-json/v/apidware/rhythmie?style=plastic)](https://github.com/ApidWare/Rhythmie)
+[![GitHub license](https://img.shields.io/github/license/ApidWare/Rhythmie?style=plastic)](https://github.com/ApidWare/Rhythmie/blob/main/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/apidware/rhythmie?style=plastic)](https://github.com/ApidWare/Rhythmie/issues)
+[![Website](https://img.shields.io/website?down_color=red&down_message=down&style=plastic&up_color=green&up_message=up&url=https%3A%2F%2Frhythmie.netlify.app)](https://rhythmie.netlify.app)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/w/apidware/rhythmie?style=plastic)](https://github.com/ApidWare/Rhythmie)
+[![GitHub forks](https://img.shields.io/github/forks/apidware/rhythmie?style=social)](https://github.com/ApidWare/rhythmie)
 
-ApidMusic is an Open-Source web based music streaming application which lets you listen to music without any interruption while respecting your privacy. \
-[Click here](https://apidmusic.netlify.app) or go to [https://apidmusic.netlify.app](https://apidmusic.netlify.app) (not available at the moment) to visit the ApidMusic website.
+Rhythmie is an Open-Source web based music streaming application which lets you listen to music without any interruption while respecting your privacy. \
+[Click here](https://rhythmie.netlify.app) or go to [https://rhythmie.netlify.app](https://rhythmie.netlify.app) (not available at the moment) to visit the Rhythmie website.
 
 >[NOTE - Still in alpha development phase.]
 
